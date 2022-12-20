@@ -1,5 +1,9 @@
+import io.ConsoleInput;
+import io.ConsoleOutput;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        final Calculator calculator = new Calculator(new ConsoleInput(), new ConsoleOutput());
+        calculator.start();
     }
 }
