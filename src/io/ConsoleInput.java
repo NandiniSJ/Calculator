@@ -1,5 +1,6 @@
 package io;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleInput implements Input {
@@ -12,6 +13,15 @@ public class ConsoleInput implements Input {
 
     @Override
     public int getNextInt() {
-        return scanner.nextInt();
+        try {
+            return scanner.nextInt();
+        } catch (InputMismatchException inputMismatchException){
+            throw new RuntimeException("Please enter valid number");
+        }
+    }
+
+    @Override
+    public void nextLine() {
+        scanner.nextLine();
     }
 }

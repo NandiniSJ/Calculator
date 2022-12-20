@@ -36,6 +36,17 @@ class CalculatorTest {
     }
 
     @Test
+    void shouldMultiplyNumbersWhenUserSelectThirdOption() {
+        int a = 10;
+        int b = 20;
+        when(input.getNextInt()).thenReturn(3).thenReturn(a).thenReturn(b).thenReturn(5);
+
+        calculator.start();
+
+        verify(output).display("" + (a * b));
+    }
+
+    @Test
     void shouldExitApplicationWhenUserSelectFifthOption() {
         when(input.getNextInt()).thenReturn(5);
 
